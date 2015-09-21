@@ -1,0 +1,2 @@
+C:\Users\311 Music\Documents\Xamarin\Projects\SpaceInvasion\SpaceInvasion\bin\Debug\SpaceInvasion.dll
+C:\Users\311 Music\Documents\Xamarin\Projects\SpaceInvasion\packages\MonoGame.Framework.Android.3.4.0.459\lib\MonoAndroid\MonoGame.Framework.dll
