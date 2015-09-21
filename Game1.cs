@@ -23,8 +23,9 @@ namespace SpaceInvasion
 			Content.RootDirectory = "Content";
 
 			graphics.IsFullScreen = true;
-			graphics.PreferredBackBufferWidth = 800;
-			graphics.PreferredBackBufferHeight = 480;
+			graphics.PreferredBackBufferWidth = ScreenManager.Instance.Dimensions.X;
+			graphics.PreferredBackBufferHeight = ScreenManager.Instance.Dimensions.Y;
+
 			graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
 		}
 
@@ -36,7 +37,7 @@ namespace SpaceInvasion
 		/// </summary>
 		protected override void Initialize()
 		{
-			//CheckForRequiredFiles();
+			
 
 			base.Initialize();
 		}
@@ -49,16 +50,7 @@ namespace SpaceInvasion
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			/*
-			ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
-			ScreenManager.Instance.SpriteBatch = spriteBatch;
-			//ScreenManager.Instance.GameWindow = this.Window;
-			ScreenManager.Instance.GameWindow = (AndroidGameWindow)this.Window;
-			ScreenManager.Instance.Dimensions = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-			ScreenManager.Instance.LoadContent(Content);
 
-			Camera2D.Instance.Initialize();
-			*/
 		}
 
 		protected override void UnloadContent()
