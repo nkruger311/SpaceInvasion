@@ -23,8 +23,8 @@ namespace SpaceInvasion
 			Content.RootDirectory = "Content";
 
 			graphics.IsFullScreen = true;
-			graphics.PreferredBackBufferWidth = ScreenManager.Instance.Dimensions.X;
-			graphics.PreferredBackBufferHeight = ScreenManager.Instance.Dimensions.Y;
+			graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
+			graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
 
 			graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
 		}
@@ -51,11 +51,16 @@ namespace SpaceInvasion
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
+			//ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+			//ScreenManager.Instance.SpriteBatch = spriteBatch;
+			//ScreenManager.Instance.GameWindow = (AndroidGameWindow)this.Window;
+			//ScreenManager.Instance.Dimensions = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+			ScreenManager.Instance.LoadContent(Content);
 		}
 
 		protected override void UnloadContent()
 		{
-			//ScreenManager.Instance.UnloadContent();
+			ScreenManager.Instance.UnloadContent();
 		}
 
 		/// <summary>
@@ -92,9 +97,10 @@ namespace SpaceInvasion
             */
 			//spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, Camera2D.Instance.Transformation);
 
-			//ScreenManager.Instance.Draw(spriteBatch);
+			spriteBatch.Begin ();
+			ScreenManager.Instance.Draw(spriteBatch);
 
-			//spriteBatch.End();
+			spriteBatch.End();
 
 			base.Draw(gameTime);
 		}
